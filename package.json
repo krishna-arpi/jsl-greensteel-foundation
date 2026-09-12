@@ -1,6 +1,7 @@
 {
   "name": "jsl-greensteel-foundation",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "npm run build --prefix frontend"
   }
