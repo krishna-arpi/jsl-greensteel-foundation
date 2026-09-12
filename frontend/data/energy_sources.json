@@ -1,0 +1,86 @@
+{
+  "_meta": {
+    "status": "DEMO_PLACEHOLDER",
+    "warning": "Each energy source below embeds an emission factor object with the same DEMO_PLACEHOLDER status as emission_factors.json (they are the same underlying values, duplicated here for direct UI/API consumption). See emission_factors.json for the canonical factor catalog, including process-route and alloy factors not listed as top-level energy sources here.",
+    "schema_note": "Each source carries: id, name, type (electricity|fuel), description, and an embedded emission_factor object (name, value, unit, year, geography, boundary, scope, source, confidence, notes)."
+  },
+  "sources": [
+    {
+      "id": "GRID_ELECTRICITY_IN",
+      "name": "Grid Electricity",
+      "type": "electricity",
+      "description": "Electricity drawn from the public grid, location-based accounting.",
+      "emission_factor": {
+        "name": "Grid Electricity (India) - CO2 intensity",
+        "value": 0.71,
+        "unit": "tCO2e/MWh",
+        "year": 2023,
+        "geography": "India (national average)",
+        "boundary": "Location-based grid average, generation only",
+        "scope": "Scope 2",
+        "source": "DEMO_PLACEHOLDER - not drawn from CEA CO2 Baseline Database or any verified registry",
+        "confidence": "Low - illustrative placeholder, unverified",
+        "notes": "Replace with the relevant year's CEA CO2 Baseline Database grid emission factor before real use."
+      }
+    },
+    {
+      "id": "RENEWABLE_ELECTRICITY_IN",
+      "name": "Renewable Electricity",
+      "type": "electricity",
+      "description": "Electricity from a renewable PPA or captive solar/wind generation.",
+      "emission_factor": {
+        "name": "Renewable Electricity (Solar/Wind PPA or captive) - CO2 intensity",
+        "value": 0.02,
+        "unit": "tCO2e/MWh",
+        "year": 2023,
+        "geography": "India (generic)",
+        "boundary": "Location-based, generation only; residual lifecycle emissions only",
+        "scope": "Scope 2",
+        "source": "DEMO_PLACEHOLDER - not drawn from a verified lifecycle-assessment or registry source",
+        "confidence": "Low - illustrative placeholder, unverified",
+        "notes": "Non-zero value is a placeholder for residual embodied/lifecycle emissions; actual factor depends on PPA structure and REC/certificate treatment."
+      }
+    },
+    {
+      "id": "NATURAL_GAS",
+      "name": "Natural Gas",
+      "type": "fuel",
+      "description": "On-site stationary combustion of natural gas.",
+      "emission_factor": {
+        "name": "Natural Gas - combustion CO2 intensity",
+        "value": 0.056,
+        "unit": "tCO2e/GJ",
+        "year": 2023,
+        "geography": "Generic / not India-specific",
+        "boundary": "Gate-to-gate, on-site stationary combustion only",
+        "scope": "Scope 1",
+        "source": "DEMO_PLACEHOLDER - order-of-magnitude figure, not from IPCC/GHG Protocol default factor tables",
+        "confidence": "Low - illustrative placeholder, unverified",
+        "notes": "Replace with an IPCC 2006 Guidelines (or GHG Protocol) default combustion factor, or a site-measured value, before real use."
+      }
+    },
+    {
+      "id": "COAL",
+      "name": "Coal",
+      "type": "fuel",
+      "description": "On-site stationary combustion of coal.",
+      "emission_factor": {
+        "name": "Coal - combustion CO2 intensity",
+        "value": 0.094,
+        "unit": "tCO2e/GJ",
+        "year": 2023,
+        "geography": "Generic / not India-specific",
+        "boundary": "Gate-to-gate, on-site stationary combustion only",
+        "scope": "Scope 1",
+        "source": "DEMO_PLACEHOLDER - order-of-magnitude figure, not from IPCC/GHG Protocol default factor tables",
+        "confidence": "Low - illustrative placeholder, unverified",
+        "notes": "Coal quality (grade, ash content, calorific value) materially changes the real factor; replace with a coal-grade-specific verified value."
+      }
+    }
+  ],
+  "process_routes": [
+    { "id": "EAF_HIGH_SCRAP", "name": "EAF - High Scrap Charge (>80%)" },
+    { "id": "EAF_LOW_SCRAP", "name": "EAF - Low Scrap Charge (<50%)" },
+    { "id": "BOF_INTEGRATED", "name": "BOF - Integrated Route" }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "_meta": {
+    "status": "DEMO_PLACEHOLDER",
+    "warning": "Concentration and recovery figures below are illustrative DEMO values, not sourced from a certified ferro-alloy specification sheet or measured plant recovery data. Do not use for real charge-mix or procurement calculations.",
+    "schema_note": "Each specification carries: id, name, target_element, concentration_pct (wt% of the target element within the alloy addition itself), recovery_pct (% of that element retained in the melt after addition), source, confidence, notes. Distinct from emission_factors.json's alloy_addition entries, which carry embodied CO2 per tonne of the same alloy rather than its element concentration/recovery.",
+    "unit": "concentration_pct and recovery_pct are both wt%/%"
+  },
+  "specifications": [
+    {
+      "id": "FERRO_CHROME",
+      "name": "Ferro-Chrome (High Carbon)",
+      "target_element": "Cr",
+      "concentration_pct": 60.0,
+      "recovery_pct": 92.0,
+      "source": "DEMO_PLACEHOLDER - order-of-magnitude typical for HC FeCr, not a certified spec",
+      "confidence": "Low - illustrative placeholder, unverified",
+      "notes": "Real Cr content and recovery depend on FeCr grade (HC/MC/LC) and furnace practice."
+    },
+    {
+      "id": "NICKEL_METAL",
+      "name": "Nickel Metal (cathode/briquette)",
+      "target_element": "Ni",
+      "concentration_pct": 99.0,
+      "recovery_pct": 96.0,
+      "source": "DEMO_PLACEHOLDER - illustrative only",
+      "confidence": "Low - illustrative placeholder, unverified",
+      "notes": "Alternative addition routes (ferro-nickel, NPI) have materially different concentration and recovery; this uses refined nickel metal as the simplifying case."
+    },
+    {
+      "id": "FERRO_MOLYBDENUM",
+      "name": "Ferro-Molybdenum",
+      "target_element": "Mo",
+      "concentration_pct": 60.0,
+      "recovery_pct": 90.0,
+      "source": "DEMO_PLACEHOLDER - illustrative only",
+      "confidence": "Low - illustrative placeholder, unverified",
+      "notes": "Real Mo content and recovery depend on FeMo grade and furnace practice."
+    }
+  ]
+}

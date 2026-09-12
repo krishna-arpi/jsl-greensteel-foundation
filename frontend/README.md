@@ -89,23 +89,23 @@ python -m pytest tests/ -v
 - `npm run build` (tsc + vite) — succeeds with no type errors
 - Backend and frontend dev servers boot and talk to each other; `/reference-data` returns zero validation issues; `/calculate/carbon` returns a correct itemized result for the baseline scenario.
 
-## Deploying the frontend to GitHub Pages
+## Deploying the whole repository to Vercel
 
-From the repository root, run:
+This repository is configured as a single Vercel project. The Vite frontend is
+built from `frontend/` and the FastAPI backend is exposed as the `/api`
+Python function from `api/index.py`.
 
-```bash
-cd frontend
-npm install
-npm run deploy
-```
+1. Push the entire repository to GitHub (including `api/`, `backend/`, `data/`,
+   `frontend/`, `package.json`, `requirements.txt`, and `vercel.json`).
+2. Import the GitHub repository into Vercel with the project root left as the
+   repository root.
+3. Keep the detected build settings, or use:
+   - Build command: `npm run build`
+   - Output directory: `frontend/dist`
+4. Deploy. The frontend uses `/api` automatically in production, so no
+   `VITE_API_BASE_URL` variable is required for this setup.
 
-The `predeploy` script builds the Vite application and `gh-pages` publishes
-`frontend/dist` to the `gh-pages` branch. Enable GitHub Pages in the
-repository settings with `gh-pages` as the deployment branch. The frontend
-is available at:
-
-`https://krishna-arpi.github.io/jsl-greensteel-foundation/`
-
-GitHub Pages hosts only the static frontend. The FastAPI backend is not
-deployed by this workflow, so features that require `/api` need a separately
-hosted backend and an appropriate frontend API URL.
+The deployed application and API will be available on the same domain. For
+example, the API health check is `/api/health` and the API documentation is
+at `/api/docs`. Scenario data is stored in a serverless filesystem and should
+be moved to a database before relying on persistence in production.

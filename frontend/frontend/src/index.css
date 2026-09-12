@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-base-900 text-ink-100 antialiased;
+    font-feature-settings: "tnum" 1;
+  }
+  ::selection {
+    @apply bg-steel-600 text-ink-100;
+  }
+}
+
+@layer utilities {
+  .font-tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}

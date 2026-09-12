@@ -1,0 +1,57 @@
+{
+  "_meta": {
+    "status": "STATED_INPUT",
+    "warning": "The Scope 1+2, Scope 3, and derived total figures below are corporate-level carbon-intensity figures as stated for this project (JSL FY26). They are a company-wide benchmark, not a scientifically derived, product-specific, or grade-specific stainless-steel emission factor, and must not be presented or used as one. The per-grade/per-process breakdown elsewhere in this application (emission_factors.json) remains fully DEMO_PLACEHOLDER and is NOT reconciled against this corporate benchmark.",
+    "label": "JSL FY26 corporate carbon-intensity benchmark",
+    "do_not_use_as": "A universal stainless-steel product emission factor"
+  },
+  "corporate_benchmark": {
+    "label": "JSL FY26 corporate carbon-intensity benchmark",
+    "company": "Jindal Stainless Limited (JSL)",
+    "fiscal_year": "FY26",
+    "unit": "tCO2e/tcs",
+    "unit_expanded": "tonnes CO2-equivalent per tonne of crude steel",
+    "scope_1_plus_2": {
+      "value": 1.76,
+      "unit": "tCO2e/tcs",
+      "boundary": "Scope 1 (direct) + Scope 2 (purchased energy, location or market-based as reported)",
+      "source": "As stated for this project",
+      "confidence": "Not independently verified by this application"
+    },
+    "scope_3": {
+      "value": 1.27,
+      "unit": "tCO2e/tcs",
+      "boundary": "Scope 3 (value-chain, as reported)",
+      "source": "As stated for this project",
+      "confidence": "Not independently verified by this application"
+    },
+    "derived_reference_total": {
+      "value": 3.03,
+      "unit": "tCO2e/tcs",
+      "derivation": "Scope 1+2 (1.76) + Scope 3 (1.27) = 3.03, arithmetic sum only",
+      "note": "This is a corporate-wide benchmark figure and is intentionally kept separate from the grade/process-level calculator, which uses independent DEMO_PLACEHOLDER factors."
+    }
+  },
+  "demo_scenario": {
+    "_status": "DEMO_PLACEHOLDER",
+    "scenario_name": "Demo Baseline - Utkal C style EAF melt shop (illustrative)",
+    "note": "Pre-fills the Carbon Calculator on first load only. Unrelated to the corporate_benchmark block above.",
+    "inputs": {
+      "scrap_pct": 65,
+      "virgin_material_pct": 35,
+      "grade_id": "SS304",
+      "scrap_quality_id": "SCRAP_HIGH_QUALITY",
+      "electricity_source_id": "GRID_ELECTRICITY_IN",
+      "electricity_consumption_mwh_per_t": 0.55,
+      "fuel_source_id": "NATURAL_GAS",
+      "fuel_consumption_gj_per_t": 0.9,
+      "process_route_id": "EAF_HIGH_SCRAP",
+      "alloy_additions_kg_per_t": {
+        "FERRO_CHROME": 180,
+        "FERRO_NICKEL": 40,
+        "FERRO_MANGANESE": 15
+      }
+    },
+    "source": "PLACEHOLDER"
+  }
+}
