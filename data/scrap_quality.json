@@ -1,0 +1,61 @@
+{
+  "_meta": {
+    "status": "DEMO_PLACEHOLDER",
+    "warning": "Composition, yield, and alloy-recovery figures are illustrative DEMO values only, not measured or standard-referenced. Do not use for procurement, blending, or specification decisions.",
+    "schema_note": "Each category carries: Cr, Ni, Mo, Fe, C, Si, Mn, N (wt%, typical composition contributed by that scrap category), yield (%, metal recovered from charged scrap), alloy_recovery (%, retained alloy content through melting).",
+    "unit": "wt% for composition; % for yield and alloy_recovery"
+  },
+  "categories": [
+    {
+      "id": "SCRAP_HIGH_QUALITY",
+      "category_name": "High Quality",
+      "status": "DEMO",
+      "description": "Clean, segregated prime/home stainless scrap of known composition (e.g. crops, runners, sorted fabrication offcuts).",
+      "Cr": 18.0,
+      "Ni": 8.5,
+      "Mo": 0.3,
+      "Fe": 71.5,
+      "C": 0.05,
+      "Si": 0.5,
+      "Mn": 1.0,
+      "N": 0.05,
+      "yield": 96,
+      "alloy_recovery": 95,
+      "source": "DEMO - illustrative composition, not measured"
+    },
+    {
+      "id": "SCRAP_MEDIUM_QUALITY",
+      "category_name": "Medium Quality",
+      "status": "DEMO",
+      "description": "Obsolete scrap sorted by alloy family (e.g. via XRF sorting), moderate contamination.",
+      "Cr": 15.0,
+      "Ni": 6.0,
+      "Mo": 0.4,
+      "Fe": 76.5,
+      "C": 0.08,
+      "Si": 0.7,
+      "Mn": 1.2,
+      "N": 0.08,
+      "yield": 90,
+      "alloy_recovery": 88,
+      "source": "DEMO - illustrative composition, not measured"
+    },
+    {
+      "id": "SCRAP_LOW_QUALITY",
+      "category_name": "Low Quality",
+      "status": "DEMO",
+      "description": "Unsorted or loosely sorted obsolete/mixed-grade scrap with variable, less predictable composition.",
+      "Cr": 10.0,
+      "Ni": 3.0,
+      "Mo": 0.2,
+      "Fe": 84.5,
+      "C": 0.15,
+      "Si": 1.0,
+      "Mn": 1.5,
+      "N": 0.12,
+      "yield": 82,
+      "alloy_recovery": 75,
+      "source": "DEMO - illustrative composition, not measured"
+    }
+  ]
+}

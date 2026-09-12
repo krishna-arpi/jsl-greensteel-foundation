@@ -1,0 +1,11 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+pydantic==2.9.2
+pytest==8.3.3
+httpx==0.27.2
+# LP/MILP optimization engine (backend/optimization/lp_optimizer.py).
+pulp==2.9.0
+# PDF report generation (backend/services/report_generator.py).
+reportlab==4.4.10
+# PDF text extraction, used only by tests to verify report content.
+pypdf==5.9.0
