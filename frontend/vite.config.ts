@@ -3,5 +3,5 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   plugins: [react()],
-  base: process.env.VERCEL ? "/" : "/jsl-greensteel-foundation/",
+  base: "/",
 })

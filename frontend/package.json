@@ -5,12 +5,13 @@
   "type": "module",
   "homepage": "https://krishna-arpi.github.io/jsl-greensteel-foundation/",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
-    "preview": "vite preview",
-    "lint": "eslint . --ext ts,tsx"
+  "dev": "vite",
+  "build": "tsc -b && vite build",
+  "build:pages": "tsc -b && vite build --base=/jsl-greensteel-foundation/",
+  "predeploy": "npm run build:pages",
+  "deploy": "gh-pages -d dist",
+  "preview": "vite preview",
+  "lint": "eslint . --ext ts,tsx"
   },
   "dependencies": {
     "react": "^18.3.1",
