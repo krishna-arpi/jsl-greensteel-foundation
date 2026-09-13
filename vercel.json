@@ -1,5 +1,20 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "frontend/dist",
-  "installCommand": "npm install"
+  "installCommand": "npm install",
+  "rewrites": [
+    { "source": "/api/calculate/carbon", "destination": "/api/calculate?route=carbon" },
+    { "source": "/api/calculate/emissions", "destination": "/api/calculate?route=emissions" },
+    { "source": "/api/calculate/material-balance", "destination": "/api/calculate?route=material-balance" },
+    { "source": "/api/calculate/scrap-chemistry", "destination": "/api/calculate?route=scrap-chemistry" },
+    { "source": "/api/reference-data", "destination": "/api/reference-data?route=index" },
+    { "source": "/api/reference-data/alloy-specifications", "destination": "/api/reference-data?route=alloy-specifications" },
+    { "source": "/api/reference-data/baseline", "destination": "/api/reference-data?route=baseline" },
+    { "source": "/api/reference-data/emission-factors", "destination": "/api/reference-data?route=emission-factors" },
+    { "source": "/api/reference-data/energy-sources", "destination": "/api/reference-data?route=energy-sources" },
+    { "source": "/api/reference-data/scrap-quality", "destination": "/api/reference-data?route=scrap-quality" },
+    { "source": "/api/reference-data/steel-grades", "destination": "/api/reference-data?route=steel-grades" },
+    { "source": "/api/scenarios", "destination": "/api/scenarios?route=list" },
+    { "source": "/api/scenarios/:scenario_id", "destination": "/api/scenarios?route=detail&scenario_id=:scenario_id" }
+  ]
 }
