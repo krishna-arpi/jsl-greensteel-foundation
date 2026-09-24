@@ -1,9 +1,10 @@
 """
 Loads the reference JSON data files from the project-level /data directory.
 
-All files loaded here are DEMO/PLACEHOLDER data (see each file's "_meta" block).
-This module is intentionally just a thin, cached loader - no scientific
-computation happens here.
+Most files loaded here are DEMO/PLACEHOLDER data (see each file's "_meta"
+block). The JSL benchmark and climate-target files contain reported reference
+values. This module is intentionally just a thin, cached loader - no
+scientific computation happens here.
 """
 from __future__ import annotations
 
@@ -22,6 +23,8 @@ _FILES = {
     "energy_sources": "energy_sources.json",
     "baseline": "baseline.json",
     "alloy_specifications": "alloy_specifications.json",
+    "jsl_benchmarks": "JSL_BENCHMARKS.json",
+    "jsl_climate_targets": "JSL_CLIMATE_TARGETS.json",
 }
 
 
@@ -64,6 +67,14 @@ def get_alloy_specifications() -> dict:
     return _load_json(_FILES["alloy_specifications"])
 
 
+def get_jsl_benchmarks() -> dict:
+    return _load_json(_FILES["jsl_benchmarks"])
+
+
+def get_jsl_climate_targets() -> dict:
+    return _load_json(_FILES["jsl_climate_targets"])
+
+
 def get_all_reference_data() -> dict:
     """Convenience bundle used by the /reference-data endpoint that feeds
     all frontend dropdowns in a single request."""
@@ -74,4 +85,6 @@ def get_all_reference_data() -> dict:
         "energy_sources": get_energy_sources(),
         "baseline": get_baseline(),
         "alloy_specifications": get_alloy_specifications(),
+        "jsl_benchmarks": get_jsl_benchmarks(),
+        "jsl_climate_targets": get_jsl_climate_targets(),
     }

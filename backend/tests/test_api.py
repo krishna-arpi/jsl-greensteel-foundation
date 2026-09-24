@@ -21,7 +21,10 @@ def test_reference_data_bundle_loads():
     r = client.get("/reference-data")
     assert r.status_code == 200
     body = r.json()
-    for key in ("emission_factors", "steel_grades", "scrap_quality", "energy_sources", "baseline", "alloy_specifications"):
+    for key in (
+        "emission_factors", "steel_grades", "scrap_quality", "energy_sources",
+        "baseline", "alloy_specifications", "jsl_benchmarks", "jsl_climate_targets",
+    ):
         assert key in body["data"]
     # No validation issues expected against well-formed demo data.
     assert body["validation_issues"] == []
@@ -37,6 +40,30 @@ def test_individual_reference_endpoints():
         r = client.get(path)
         assert r.status_code == 200, path
         assert top_key in r.json(), path
+
+
+def test_jsl_benchmarks_and_climate_target_values():
+    benchmarks = client.get("/reference-data/jsl-benchmarks")
+    assert benchmarks.status_code == 200
+    records = benchmarks.json()["records"]
+    intensity = {
+        item["financial_year"]: item["value"]
+        for item in records
+        if item["parameter"] == "Scope 1+2 GHG intensity"
+    }
+    assert intensity == {"FY2022": 1.98, "FY2023": 2.08, "FY2024": 2.15, "FY2025": 1.85, "FY2026": 1.76}
+    assert all(item["data_type"] == "Official JSL Reported Data" for item in records)
+    assert next(item for item in records if item["parameter"] == "Scope 1")["value"] == 3074950
+    assert next(item for item in records if item["parameter"] == "Renewable power")["value"] == 46.8
+
+    targets = client.get("/reference-data/jsl-climate-targets")
+    assert targets.status_code == 200
+    target = targets.json()["records"][0]
+    assert target["baseline_intensity"] == 1.98
+    assert target["target_reduction_percent"] == 50
+    assert target["derived_target_intensity"] == 0.99
+    assert target["baseline_intensity"] * (1 - target["target_reduction_percent"] / 100) == target["derived_target_intensity"]
+    assert target["data_type"] == "Model-Derived Target"
 
 
 def test_baseline_endpoint_has_corporate_benchmark_not_product_factor():

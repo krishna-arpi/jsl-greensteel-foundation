@@ -155,6 +155,18 @@ export interface ReferenceDataBundle {
   scrap_quality: ScrapQualityFile;
   energy_sources: EnergySourcesFile;
   baseline: BaselineFile;
+  alloy_specifications?: {
+    _meta: DataMeta;
+    specifications: Record<string, unknown>[];
+  };
+  jsl_benchmarks?: {
+    table: string;
+    records: Record<string, unknown>[];
+  };
+  jsl_climate_targets?: {
+    table: string;
+    records: Record<string, unknown>[];
+  };
 }
 
 export interface ReferenceDataResponse {

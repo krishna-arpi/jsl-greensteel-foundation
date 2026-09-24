@@ -41,6 +41,8 @@ from backend.data.loader import (
     get_alloy_specifications,
     get_all_reference_data,
     get_baseline,
+    get_jsl_benchmarks,
+    get_jsl_climate_targets,
     get_emission_factors,
     get_energy_sources,
     get_scrap_quality,
@@ -172,6 +174,18 @@ def alloy_specifications() -> dict:
     alloy/metal addition used by the scrap chemistry engine. Distinct from
     emission_factors.json's alloy_addition entries (embodied CO2)."""
     return _load_or_500(get_alloy_specifications)
+
+
+@app.get("/reference-data/jsl-benchmarks", tags=["reference"])
+def jsl_benchmarks() -> dict:
+    """Reported JSL benchmarks, kept separate from calculator emission factors."""
+    return _load_or_500(get_jsl_benchmarks)
+
+
+@app.get("/reference-data/jsl-climate-targets", tags=["reference"])
+def jsl_climate_targets() -> dict:
+    """Reported JSL climate targets and their documented derivations."""
+    return _load_or_500(get_jsl_climate_targets)
 
 
 @app.post("/calculate/carbon", response_model=CarbonCalculationResult, tags=["calculator"])

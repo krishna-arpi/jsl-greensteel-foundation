@@ -8,6 +8,7 @@ import type { ReferenceDataBundle } from "../types/referenceData";
 import type { OptimizationResult } from "../types/calculator";
 import { formatNumber } from "../utils/format";
 import { generateOptimizationExplanation } from "../utils/generateOptimizationExplanation";
+import JSLDecarbonizationTracker from "../components/JSLDecarbonizationTracker";
 
 export default function CarbonOptimizationPage() {
   const [refData, setRefData] = useState<ReferenceDataBundle | null>(null);
@@ -31,7 +32,12 @@ export default function CarbonOptimizationPage() {
     fetchReferenceData()
       .then((res) => {
         setRefData(res.data);
-        setGradeId(res.data.steel_grades.grades[0]?.id ?? "");
+        // Start from the compatible demo combination. Grade 304 has Mo_max=0
+        // while the default high-quality scrap contains trace Mo, so it would
+        // make the initial "before" scenario chemistry-invalid by design.
+        setGradeId(res.data.steel_grades.grades.find((grade) => grade.id === "SS316")?.id
+          ?? res.data.steel_grades.grades[0]?.id
+          ?? "");
         setScrapQualityId(res.data.scrap_quality.categories[0]?.id ?? "");
       })
       .catch((err) => setLoadError(err instanceof Error ? err.message : "Failed to load reference data."));
@@ -300,6 +306,7 @@ export default function CarbonOptimizationPage() {
           )}
         </div>
       </div>
+      <JSLDecarbonizationTracker optimizationResult={result} />
     </div>
   );
 }

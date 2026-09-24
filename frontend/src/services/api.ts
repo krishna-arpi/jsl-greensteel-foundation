@@ -19,6 +19,8 @@ import type {
   UncertaintyResult,
   ValidationReport,
   ValidationRequest,
+  JslBenchmarkRecord,
+  JslClimateTarget,
 } from "../types/calculator";
 import type {
   BaselineFile,
@@ -96,6 +98,14 @@ export function fetchEmissionFactors() {
 
 export function fetchBaseline() {
   return request<BaselineFile>("/reference-data/baseline");
+}
+
+export function fetchJslBenchmarks() {
+  return request<{ records: JslBenchmarkRecord[] }>("/reference-data/jsl-benchmarks");
+}
+
+export function fetchJslClimateTargets() {
+  return request<{ records: JslClimateTarget[] }>("/reference-data/jsl-climate-targets");
 }
 
 export function calculateCarbon(payload: CarbonCalculationInput) {

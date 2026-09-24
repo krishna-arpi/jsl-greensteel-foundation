@@ -22,6 +22,7 @@ export default function CalculatorPage() {
   const [naturalGasConsumption, setNaturalGasConsumption] = useState(0.9);
   const [coalConsumption, setCoalConsumption] = useState(0.1);
   const [yieldPct, setYieldPct] = useState(92);
+  const [processRouteId, setProcessRouteId] = useState("");
 
   const [result, setResult] = useState<CarbonEmissionResult | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -37,6 +38,7 @@ export default function CalculatorPage() {
         setScrapQualityId(res.data.scrap_quality.categories[0]?.id ?? "");
         const firstElectricity = res.data.energy_sources.sources.find((s) => s.type === "electricity");
         setElectricitySourceId(firstElectricity?.id ?? "");
+        setProcessRouteId(res.data.energy_sources.process_routes[0]?.id ?? "");
       })
       .catch((err) => setLoadError(err instanceof Error ? err.message : "Failed to load reference data."));
   }, []);
@@ -65,6 +67,7 @@ export default function CalculatorPage() {
         electricity_source_id: electricitySourceId,
         natural_gas_consumption_gj_per_t: naturalGasConsumption,
         coal_consumption_gj_per_t: coalConsumption,
+        process_route_id: processRouteId || undefined,
       });
       setResult(res);
     } catch (err) {
@@ -99,6 +102,7 @@ export default function CalculatorPage() {
     naturalGasConsumption,
     coalConsumption,
     yieldPct,
+    processRouteId,
   ]);
 
   const donutSlices = useMemo(() => {

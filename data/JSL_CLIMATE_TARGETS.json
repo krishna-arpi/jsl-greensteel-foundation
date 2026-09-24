@@ -1,0 +1,21 @@
+{
+  "table": "JSL_CLIMATE_TARGETS",
+  "records": [
+    {
+      "target_id": "JSL_SCOPE_1_2_FY2035",
+      "baseline_year": "FY2022",
+      "baseline_intensity": 1.98,
+      "baseline_unit": "tCO2e/tcs",
+      "target_year": "FY2035",
+      "target_reduction_percent": 50,
+      "derived_target_intensity": 0.99,
+      "target_description": "50% reduction in Scope 1 + Scope 2 GHG emissions intensity by FY2035 from FY2022 baseline.",
+      "source": "Jindal Stainless FY2025-26 Integrated Annual Report / Climate Action Report",
+      "source_url": [
+        "https://www.jindalstainless.com/annualreport/2025-2026/strategy.php",
+        "https://www.jindalstainless.com/wp-content/uploads/2025/10/JSL-TCFD-Report-2025.pdf"
+      ],
+      "data_type": "Model-Derived Target"
+    }
+  ]
+}

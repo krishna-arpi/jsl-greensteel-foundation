@@ -22,6 +22,10 @@ export default function handler(req, res) {
         }
       case "alloy-specifications":
         return json(res, 200, data("alloy_specifications"));
+      case "jsl-benchmarks":
+        return json(res, 200, data("JSL_BENCHMARKS"));
+      case "jsl-climate-targets":
+        return json(res, 200, data("JSL_CLIMATE_TARGETS"));
       case "baseline":
         return json(res, 200, data("baseline"));
       case "emission-factors":

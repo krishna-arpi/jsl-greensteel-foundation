@@ -333,6 +333,31 @@ export interface OptimizationResult {
   binding_constraints: BindingConstraintResult[];
 }
 
+export interface JslBenchmarkRecord {
+  financial_year: string;
+  parameter: string;
+  value: number;
+  unit: string;
+  scope: string;
+  source: string;
+  source_url: string;
+  data_type: "Official JSL Reported Data";
+}
+
+export interface JslClimateTarget {
+  target_id: string;
+  baseline_year: string;
+  baseline_intensity: number;
+  baseline_unit: string;
+  target_year: string;
+  target_reduction_percent: number;
+  derived_target_intensity: number;
+  target_description: string;
+  source: string;
+  source_url: string[];
+  data_type: "Model-Derived Target";
+}
+
 // --- Sensitivity analysis ---------------------------------------------------
 // Mirrors backend/models/schemas.py Sensitivity* models.
 

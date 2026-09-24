@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "npm install --prefix frontend && npm run build --prefix frontend"
+    "build": "npm install --prefix frontend && npm run build --prefix frontend",
+    "dev": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\dev.ps1"
   }
 }

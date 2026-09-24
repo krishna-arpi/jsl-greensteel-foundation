@@ -9,6 +9,8 @@
     { "source": "/api/calculate/scrap-chemistry", "destination": "/api/calculate?route=scrap-chemistry" },
     { "source": "/api/reference-data", "destination": "/api/reference-data?route=index" },
     { "source": "/api/reference-data/alloy-specifications", "destination": "/api/reference-data?route=alloy-specifications" },
+    { "source": "/api/reference-data/jsl-benchmarks", "destination": "/api/reference-data?route=jsl-benchmarks" },
+    { "source": "/api/reference-data/jsl-climate-targets", "destination": "/api/reference-data?route=jsl-climate-targets" },
     { "source": "/api/reference-data/baseline", "destination": "/api/reference-data?route=baseline" },
     { "source": "/api/reference-data/emission-factors", "destination": "/api/reference-data?route=emission-factors" },
     { "source": "/api/reference-data/energy-sources", "destination": "/api/reference-data?route=energy-sources" },
